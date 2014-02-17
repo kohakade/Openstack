@@ -26,6 +26,9 @@ sudo mkdir -p /var/run/swift
 
 sudo chown -R swift:swift /etc/swift /srv/{1..4}/
 
-sudo sed -i 's/exit 0/mkdir -p /var/run/swift\nchown swift:swift /var/run/swift\nexit 0/g' /etc/rc.local
+sudo sed -i 's/exit 0/ /g' /etc/rc.local
+sudo echo "mkdir -p /var/run/swift">>/etc/rc.local
+sudo echo "chown swift:swift /var/run/swift">>/etc/rc.local
+sudo echo "exit 0">>/etc/rc.local
 
 exit
